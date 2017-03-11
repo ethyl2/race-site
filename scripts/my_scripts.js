@@ -1,5 +1,17 @@
 
 $(document).ready(function(){
+	var FREQ = 10000;
+
+	function startAJAXcalls() {
+		setTimeout(function() {
+			getXMLRacers();
+			startAJAXcalls();
+			}, FREQ
+		);
+	};
+
+	getXMLRacers(); //called to make sure page has content when initially loaded
+	startAJAXcalls();
 
 	function getXMLRacers() {
 		$.ajax({
@@ -22,7 +34,7 @@ $(document).ready(function(){
 					}
 					$("#finishers_all").append(info);
 				});
-				getTime();
+				getTimeAjax();
 			}
 		});
 	}
@@ -46,4 +58,12 @@ $(document).ready(function(){
 
         $('#updatedTime').html(curr_hour + ":" + curr_min + ":" + curr_sec + " " + a_p );
     }
+
+		function showFrequency() {
+			$("#freq").html("Page refreshes every " + FREQ/1000 + " second(s).");
+		}
+
+		function getTimeAjax() {
+			$("#updatedTime").load("time.php");
+		}
 });

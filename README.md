@@ -20,12 +20,12 @@ To run this project:
 it is not configured to run php files by default. Instead, you can use the php
 webserver instead.
 
-PHP 5.4 or greater is needed. To see what version you have installed:
+  PHP 5.4 or greater is needed. To see what version you have installed:
 
   ```bash
   $> php -v
   ```
-If you need to install PHP 7.1:
+  If you need to install PHP 7.1:
 
   ```bash
   $> sudo apt-get install python-software-properties
@@ -34,7 +34,7 @@ If you need to install PHP 7.1:
   $> sudo apt-get install -y php7.1
   $> php -v
   ```
-Now you are ready:
+  Now you are ready:
 
   ```bash
   $> cd /path/to/your-project-folder

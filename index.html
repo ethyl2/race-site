@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>2010 Race Finishers</title>
+        <title>2017 Race Finishers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="styles/my_style.css" rel="stylesheet">
+        <!-- Favicon is from http://www.freefavicon.com/freefavicons/objects/iconinfo/lattice-optic-illusion-152-204321.html-->
+        <link rel="icon" type="image/png" href="images/lattice.png">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h2>2010 Race Finishers!</h2>
+            <h2>2017 Race Finishers!</h2>
         </header>
         <div id="main">
             <ul class="idTabs">
@@ -18,7 +23,15 @@
 
             <div id="about">
                 <h4>About the Race</h4>
-                 This race is to raise awareness of something or other!
+                <p>This race is to raise awareness of a very important cause!
+                </p>
+                <a title="By U.S. Navy photo by Mass Communication Specialist 3rd
+                  Class Sean P. Lenahan [Public domain], via Wikimedia Commons"
+                  href="https://commons.wikimedia.org/wiki/File%3AUS_Navy_070315-N-3901L-023_Navy_personnel%2C_veterans%2C_and_civilians_run_during_a_5K_marathon_held_at_Balboa_Naval_Medical_Center_San_Diego.jpg">
+                  <img alt="US Navy 070315-N-3901L-023 Navy personnel, veterans, and civilians
+                  run during a 5K marathon held at Balboa Naval Medical Center San Diego"
+                  src="images/navyRace.jpg">
+                </a>
             </div>
 
             <div id="male">
@@ -39,7 +52,10 @@
         </div>
         <footer>
 			<h4>Congratulations to all our finishers!</h4>
-      <span id="freq"></span>
+      <button id="btnStop">Pause Updates</button>
+      <button id="btnStart">Start Updates</button>
+      <br>
+      <span id="freq"></span><br><br>
 			Last Updated: <div id="updatedTime"></div>
 		</footer>
         <script src="scripts/jquery-1.6.2.min.js"></script>

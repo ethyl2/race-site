@@ -1,13 +1,15 @@
-
 $(document).ready(function(){
 	var FREQ = 10000;
+	var repeat = true;
 
 	function startAJAXcalls() {
-		setTimeout(function() {
-			getXMLRacers();
-			startAJAXcalls();
-			}, FREQ
-		);
+		if (repeat) {
+			setTimeout(function() {
+				getXMLRacers();
+				startAJAXcalls();
+				}, FREQ
+			);
+		}
 	};
 
 	getXMLRacers(); //called to make sure page has content when initially loaded
@@ -41,6 +43,10 @@ $(document).ready(function(){
 
 	getXMLRacers();
 
+	/* getTime() isn't needed b/c of ajax version below: getTimeAjax().
+	 * But it is handy to use in place of getTimeAjax() if using a webserver that
+	 * doesn't run php files, such as python's SimpleHTTPServer.
+	 */
 	function getTime(){
         var a_p = "";
         var d = new Date();
@@ -66,4 +72,20 @@ $(document).ready(function(){
 		function getTimeAjax() {
 			$("#updatedTime").load("time.php");
 		}
+
+		$("#btnStop").click(function() {
+			repeat = false;
+			$("#freq").html("Updates paused.");
+			$(this).toggle();
+			$("#btnStart").toggle();
+		});
+
+		$("#btnStart").click(function() {
+			repeat = true;
+			startAJAXcalls();
+			showFrequency();
+			$(this).toggle();
+			$("#btnStop").toggle();
+		});
+
 });

@@ -1,14 +1,20 @@
 body{
 	background-color: #000;
 	color: white;
+	font-family: 'Roboto', sans-serif;
 }
+
+h1, h2, h3, h4 {
+	font-family: 'Comfortaa', cursive;
+}
+
 
 /* Style for tabs */
 #main {
   background:#181818;
   color:#111;
   padding:15px 20px;
-  width:500px;
+  width: 60%;
   border:1px solid #222;
   margin:8px auto;
 }
@@ -16,11 +22,14 @@ body{
 #main ul a {
   display:block;
   padding:6px 10px;
+	font-family: 'Comfortaa', cursive;
   text-decoration:none!important;
   margin:1px;
   margin-left:0;
   color:#FFF;
   background:#444;
+	border-top-left-radius: 0.25em;
+	border-top-right-radius: 0.25em;
 }
 #main ul a:hover {
   color:#FFF;
@@ -42,3 +51,34 @@ body{
   height: 300px ;
 }
 #main div a { color:#000; font-weight:bold; }
+
+/* Style for bottom buttons */
+
+button {
+	margin-bottom: 0.5em;
+	border-radius: 0.25em;
+	padding: 0.5em;
+}
+
+button:hover {
+	background-color: #BBB;
+}
+
+#btnStart {
+	display: none;
+}
+
+#btnStop {
+}
+
+/* Image styles */
+img {
+max-width: 100%;
+border: 2px solid black;
+border-radius: 0.25em;
+}
+
+#about {
+	text-align: center;
+	margin: auto;
+}

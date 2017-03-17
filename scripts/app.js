@@ -51,8 +51,23 @@ $(document).ready(function(){
 	 */
 	function getDBRacers() {
 		$.getJSON("service.php", function(json) {
-			alert(json.runners.length);
-			console.log("Getting json.runners.length", json.runners.length);
+			if (json.runners.length > 0) {
+				// Clear the existing entries
+				$("#finishers_m").empty();
+				$("#finishers_f").empty();
+				$("#finishers_all").empty();
+
+				$.each(json.runners, function() {
+					var info = "<li>Name: " + this["fname"] + " " + this["lname"] + ". Time: " +
+						this["time"] + "</li>";
+					if (this["gender"] == "m") {
+						$("#finishers_m").append(info);
+					} else if (this["gender"] == "f") {
+						$("#finishers_f").append(info);
+					}
+					$("#finishers_all").append(info);
+				});
+			}
 		})
 		.error(function(jqXHR, textStatus, errorThrown) { console.log("error", jqXHR.responseText, textStatus, errorThrown); })
 		getTimeAjax();

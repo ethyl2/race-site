@@ -5,14 +5,17 @@ $(document).ready(function(){
 	function startAJAXcalls() {
 		if (repeat) {
 			setTimeout(function() {
-				getXMLRacers();
+				//getXMLRacers();
+				getDBRacers(); //New call instead of using finishers.xml to get data
+				console.log("Inside setTimeout function of startAJAXcalls");
 				startAJAXcalls();
 				}, FREQ
 			);
 		}
 	};
 
-	getXMLRacers(); //called to make sure page has content when initially loaded
+	//getXMLRacers(); //called to make sure page has content when initially loaded
+	getDBRacers(); // New call instead of above call.
 	startAJAXcalls();
 
 	function getXMLRacers() {
@@ -41,7 +44,19 @@ $(document).ready(function(){
 		});
 	}
 
-	getXMLRacers();
+	//getXMLRacers();
+
+	/* Here is the new function to get the data, from service.php instead of
+	 * from finishers.xml
+	 */
+	function getDBRacers() {
+		$.getJSON("service.php", function(json) {
+			alert(json.runners.length);
+			console.log("Getting json.runners.length", json.runners.length);
+		})
+		.error(function(jqXHR, textStatus, errorThrown) { console.log("error", jqXHR.responseText, textStatus, errorThrown); })
+		getTimeAjax();
+	}
 
 	/* getTime() isn't needed b/c of ajax version below: getTimeAjax().
 	 * But it is handy to use in place of getTimeAjax() if using a webserver that

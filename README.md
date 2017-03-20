@@ -1,4 +1,4 @@
-#Race Data Website
+# Race Data Website
 
 This project displays data from a hypothetical race, and continually updates the
 data using jQuery's update and load methods. Users can add new racer data to be
@@ -78,4 +78,3 @@ Run the following SQL:
   ```bash
   insert into runners (first_name, last_name, gender, finish_time) values ('John', 'Smith', 'm', '25:54');
   ```
-  

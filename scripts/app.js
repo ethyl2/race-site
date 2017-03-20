@@ -7,7 +7,6 @@ $(document).ready(function(){
 			setTimeout(function() {
 				//getXMLRacers();
 				getDBRacers(); //New call instead of using finishers.xml to get data
-				console.log("Inside setTimeout function of startAJAXcalls");
 				startAJAXcalls();
 				}, FREQ
 			);
@@ -50,7 +49,7 @@ $(document).ready(function(){
 	 * from finishers.xml
 	 */
 	function getDBRacers() {
-		$.getJSON("service.php", function(json) {
+		$.getJSON("service.php?action=getRunners", function(json) {
 			if (json.runners.length > 0) {
 				// Clear the existing entries
 				$("#finishers_m").empty();
@@ -119,7 +118,7 @@ $(document).ready(function(){
 		});
 
     $("#btnSave").click(function() {
-      var data = $("#addRunner:input").serializeArray();
+      var data = $("#addRunner :input").serializeArray();
       $.post($("#addRunner").attr("action"), data, function(json) {
         if (json.status == "fail") {
           alert(json.message);
@@ -132,7 +131,7 @@ $(document).ready(function(){
     });
 
     function clearInputs() {
-      $("#addRunner:input:not(:hidden)").each(function(i) {
+      $("#addRunner :input:not(:hidden)").each(function(i) {
         $(this).val("");
       });
     }
